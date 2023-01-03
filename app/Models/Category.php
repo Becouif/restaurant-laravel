@@ -9,4 +9,5 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+    // return $this->belongsTo(App\Http\Controllers\CategoryController::class);
 }
