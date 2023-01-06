@@ -10,17 +10,18 @@
 
 
           @endif
-          <form action="{{route('category.store')}}" method="post">@csrf
+          <form action="{{route('category.edit',[$category->id])}}" method="post" >@csrf
+            @method('PUT')
             <div class="card">
-                <div class="card-header">Manage Food Category</div>
+                <div class="card-header">Update Food Category</div>
 
                 <div class="card-body">
                   <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control" value="{{$category->name}}">
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-outline-primary">Submit</button>
+                    <button class="btn btn-outline-primary">Update</button>
                   </div>
 
                 </div>

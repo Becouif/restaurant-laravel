@@ -25,10 +25,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::group(['prefix'=>'category'], function(){
-    Route::get('/', [CategoryController::class, 'index']);
-    Route::get('/create',[CategoryController::class, 'create']);
+    Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('create',[CategoryController::class, 'create'])->name('category.create');
     Route::post('store',[App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+    Route::get('update/{id}',[CategoryController::class, 'edit']);
+    Route::put('update/{id}',[CategoryController::class, 'update'])->name('category.edit');
+    // Route::get('delete',[CategoryController::class, 'index']);
+    Route::delete('delete/{id}',[CategoryController::class, 'destroy'])->name('category.delete');
 });
 // Route::get('/category/create', [CategoryController::class, 'create']);
 
-// Route::resource('/category', [CategoryController::class, 'create']);
+// Route::resource('category', [CategoryController::class]);
+
+
+
+

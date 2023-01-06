@@ -35,6 +35,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('category.create') }}">Create</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('category.index') }}">Index</a>
+                                </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

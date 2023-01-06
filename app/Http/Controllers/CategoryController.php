@@ -66,6 +66,9 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $category = Category::find($id);
+        return view('category.edit', compact('category'));
+        
     }
 
     /**
@@ -78,6 +81,11 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $category = Category::find($id);
+        $category->name = $request->get('name');
+        $category->save();
+        return redirect()->route('category.index')->with('message','category updated');
+       
     }
 
     /**
@@ -89,5 +97,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('category.index')->with('message','category deleted');
     }
 }
