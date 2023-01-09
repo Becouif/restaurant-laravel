@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
+use APP\Models\Food;
+
 
 use Illuminate\Http\Request;
 
@@ -38,7 +40,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
         Category::create(['name'=>$request->get('name')]);
         // return $request->all();
         // $categories = Category::get();
@@ -80,7 +84,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
         $category = Category::find($id);
         $category->name = $request->get('name');
         $category->save();

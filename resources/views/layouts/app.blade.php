@@ -35,11 +35,17 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('category.create') }}">Create</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('category.create') }}">category Create</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('category.index') }}">Index</a>
+                                    <a class="nav-link" href="{{ route('category.index') }}">Category Index</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('food.index') }}">Food Index</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('food.create') }}">Food create</a>
                                 </li>
                         <!-- Authentication Links -->
                         @guest

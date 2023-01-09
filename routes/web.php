@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,15 @@ Route::group(['prefix'=>'category'], function(){
 // Route::get('/category/create', [CategoryController::class, 'create']);
 
 // Route::resource('category', [CategoryController::class]);
+
+
+// start of route for food 
+Route::group(['prefix'=>'food'],function(){
+    Route::get('/',[FoodController::class, 'index'])->name('food.index');
+    Route::get('create',[FoodController::class, 'create'])->name('food.create');
+    Route::post('store', [FoodController::class, 'store'])->name('food.store');
+    
+});
 
 
 
