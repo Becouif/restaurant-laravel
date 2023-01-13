@@ -35,19 +35,24 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('category.create') }}">category Create</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('category.index') }}">Category Index</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('food.index') }}">Food Index</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('food.create') }}">Food create</a>
-                                </li>
+                               
+                               
+                               
                         <!-- Authentication Links -->
+                            @if(Auth::check())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('category.create') }}">category Create</a>
+                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('food.create') }}">Food create</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('category.index') }}">{{ __('CATEGORY') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('food.index') }}">{{ __('FOOD') }}</a>
+                                </li>
+                            @endif
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

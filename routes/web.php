@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\CategoryController::class, 'index'])->name('home');
 
 
 
@@ -44,6 +44,9 @@ Route::group(['prefix'=>'food'],function(){
     Route::get('/',[FoodController::class, 'index'])->name('food.index');
     Route::get('create',[FoodController::class, 'create'])->name('food.create');
     Route::post('store', [FoodController::class, 'store'])->name('food.store');
+    Route::get('update/{id}', [FoodController::class, 'edit']);
+    Route::put('update/{id}',[FoodController::class, 'update'])->name('food.edit');
+    Route::delete('delete/{id}', [FoodController::class, 'destroy'])->name('food.delete');
     
 });
 
