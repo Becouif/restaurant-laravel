@@ -15,10 +15,11 @@ use App\Http\Controllers\FoodController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/',[FoodController::class, 'ListFood']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\CategoryController::class, 'index'])->name('home');
@@ -33,7 +34,7 @@ Route::group(['prefix'=>'category'], function(){
     Route::put('update/{id}',[CategoryController::class, 'update'])->name('category.edit');
     // Route::get('delete',[CategoryController::class, 'index']);
     Route::delete('delete/{id}',[CategoryController::class, 'destroy'])->name('category.delete');
-});
+})->middleware('auth');
 // Route::get('/category/create', [CategoryController::class, 'create']);
 
 // Route::resource('category', [CategoryController::class]);
@@ -48,8 +49,9 @@ Route::group(['prefix'=>'food'],function(){
     Route::put('update/{id}',[FoodController::class, 'update'])->name('food.edit');
     Route::delete('delete/{id}', [FoodController::class, 'destroy'])->name('food.delete');
     
-});
+    
+})->middleware('auth');
 
-
+Route::get('foods/{id}/', [FoodController::class, 'show'])->name('food.view');
 
 

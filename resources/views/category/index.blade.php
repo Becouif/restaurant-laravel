@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"All Category></div>
+                <div class="card-header"><span class="float-left">All Category</span>
+                    <span class="float-right">
+                        <a href="{{route('category.create')}}"><button class="btn btn-outline-secondary">Add category</button></a>
+                    </span>
+                </div>
 
                 <div class="card-body">
                 @if(Session::has('message'))

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Food;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class FoodController extends Controller
 {
@@ -72,6 +73,8 @@ class FoodController extends Controller
     public function show($id)
     {
         //
+        $food= Food::find($id);
+        return view('food.detail',compact('food'));
     }
 
     /**
@@ -134,5 +137,11 @@ class FoodController extends Controller
         $food = Food::find($id);
         $food->delete();
         return redirect()->route('food.index')->with('message', 'food deleted');
+    }
+
+    public function ListFood(){
+        $categories = Category::with('food')->get();
+        return view('food.list', compact('categories'));
+        
     }
 }

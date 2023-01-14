@@ -40,12 +40,7 @@
                                
                         <!-- Authentication Links -->
                             @if(Auth::check())
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('category.create') }}">category Create</a>
-                                </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('food.create') }}">Food create</a>
-                            </li>
+                           
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('category.index') }}">{{ __('CATEGORY') }}</a>
                                 </li>

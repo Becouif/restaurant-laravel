@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Food;
 
 class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
-    // return $this->belongsTo(App\Http\Controllers\CategoryController::class);
+    public function food(){
+        return $this->hasOne(Food::class, 'category_id','id');
+    }
 }

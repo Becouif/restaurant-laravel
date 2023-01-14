@@ -5,15 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Food Section list</div>
+                <div class="card-header">Food Section
+                    <span class="float-right">
+                        <a href="{{route('food.create')}}"><button class="btn btn-outline-secondary">Add Food</button></a>
+                    </span>
+                </div>
 
                 <div class="card-body">
-                @if(Session::has('message'))
+                    @if(Session::has('message'))
 
-                <div class="alert alert-success">{{Session::get('message')}}</div>
+                    <div class="alert alert-success">{{Session::get('message')}}</div>
 
 
-                @endif
+                    @endif
                     <table class="table">
                       <thead class="thead-light">
                         <tr>
